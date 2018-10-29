@@ -5,7 +5,6 @@
  * @date 25/10/2018
  */
 
-var remote_socket_server = 'https://webchat-dev.smartly.ai';
 var Smartly;
 
 function smartlyClass() {
@@ -21,10 +20,11 @@ function smartlyClass() {
         // Static var
         Smartly.NEW_DIALOG_SESSION = 'NEW_DIALOG_SESSION';
         Smartly.NEW_INPUT = 'NEW_INPUT';
+        Smartly.REMOTE_SOCKET_SERVER = 'https://webchat.smartly.ai';
             
         // --- class Attribut's
         // Connect to the remote socket
-        this.socket = io.connect(remote_socket_server, {
+        this.socket = io.connect(Smartly.REMOTE_SOCKET_SERVER, {
             transports: ['websocket']
         });
         this.user_id = typeof attributs.user_id !== 'undefined' ? attributs.user_id : Date.now();
